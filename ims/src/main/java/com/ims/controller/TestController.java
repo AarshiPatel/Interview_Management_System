@@ -9,4 +9,9 @@ public class TestController {
 	public String loginpage() {
 		return "index";
 	}
+	
+	
+	public String printHello() {
+		return "hello";
+	}
 }
