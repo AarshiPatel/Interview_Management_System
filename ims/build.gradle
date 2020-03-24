@@ -1,0 +1,51 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+	
+	testCompileOnly 'org.projectlombok:lombok:1.18.12'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+	 compile('org.springframework.boot:spring-boot-starter-data-jpa')
+  	 compile('mysql:mysql-connector-java')
+	compile('com.sun.mail:javax.mail:1.4.5')
+	compile('org.mindrot:jbcrypt:0.4')
+	compile('org.jasypt:jasypt:1.4.1')
+    compile('org.apache.poi:poi:3.11')
+    compile('org.apache.poi:poi-ooxml:3.11')
+  	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+  	testImplementation('org.junit.jupiter:junit-jupiter-api:5.4.2')
+    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.2')
+    testImplementation('junit:junit:4.13')
+	
+	 
+}
+
+test {
+	useJUnitPlatform()
+}
